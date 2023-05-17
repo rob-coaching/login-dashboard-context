@@ -1,32 +1,36 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { DataContext } from "../store/DataProvider";
 
 export const Login = () => {
-
-  const { setUser } = useContext(DataContext)
+  
+  const { } = useContext(DataContext)
 
   const [email, setEmail] = useState();
   const [pw, setPw] = useState();
   const [error, setError] = useState("")
 
-  const navigate = useNavigate();
-
   const onLoginSubmit = (e) => {
     e.preventDefault();
 
-    if(email !== "rob" || pw !== "123") {
-      return setError("Wrong creds, my dude")
+    if (email !== "rob" || pw !== "123") {
+      return setError("Wrong creds, my dude");
     }
 
-    setUser({
+    console.log("Credentials correct! Logging you in...");
+
+    const userData = {
       _id: "u1",
       username: "robbos",
       email: email,
       avatar: "https://source.unsplash.com/100x100?avatar-guest",
-    });
+    };
 
-    navigate("/dashboard");
+    // todo: log user in (= set user in state)
+
+    // todo: navigate to dashboard page
+
+    // clear any error from previous login
+    setError("");
   };
 
   return (

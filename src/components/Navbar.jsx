@@ -10,18 +10,16 @@ export const Navbar = () => {
   const logout = (e) => {
     e.preventDefault()
 
-    setUser() // clear user in state
-
-    navigate("/");
+    // todo: do lougout (=clear user in state)
   };
 
   console.log({ user })
 
   return (
     <nav className="flex justify-center gap-4">
-      {!user && <NavLink to="/">Login</NavLink>}
-      {user && <NavLink to="/dashboard">Dashboard</NavLink>}
-      {user && <NavLink to="#" onClick={ logout }>Logout</NavLink>}
+      <NavLink to="/">Login</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="#" onClick={ logout }>Logout</NavLink>
     </nav>
   );
 };
